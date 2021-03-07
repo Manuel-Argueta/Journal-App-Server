@@ -8,6 +8,7 @@ const Journal = require('./Models/journals');
 
 const port = process.env.PORT || 8888;
 const mongoUri = process.env.URI;
+
 const server = express();
 
 server.use(cors());
@@ -29,7 +30,7 @@ db.once('open', () =>{
 });
 
 // basic endpoint
-server.get('/', ()=> {
+server.get('/', (req,res)=> {
     console.log('Server OK');
 });
 
