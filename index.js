@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 //Models
 const Journal = require('./Models/journals');
 
-const port = process.env.PORT || 8888;
+const port = process.env.PORT || 8080;
 const mongoUri = process.env.URI;
 
 const server = express();
@@ -31,7 +31,10 @@ db.once('open', () =>{
 
 // basic endpoint
 server.get('/', (req,res)=> {
-    console.log('Server OK');
+    res.status(200).send({
+        status: 200,
+        msg: "Server OK"
+        });
 });
 
 // create journal entry
